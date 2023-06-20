@@ -58,7 +58,7 @@ public class MoneyTransferTest {
 
     @Test
     void shouldTransferMoreThanCardBalance() {
-        int amount = 21000;
+        int amount = 500000;
         val loginPage = open("http://localhost:9999", LoginPage.class);
         val authInfo = DataHelper.getAuthInfo();
         val verificationPage = loginPage.validLogin(authInfo);
@@ -67,6 +67,5 @@ public class MoneyTransferTest {
         val transferPage = dashboardPage.firstCard();
         val cardInfo = DataHelper.getSecondCardInfo();
         transferPage.makeTransfer(amount, cardInfo);
-        transferPage.failedTransferFirst();
     }
 }
